@@ -80,23 +80,16 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== RSVP Form =====
-const STORAGE_KEY = 'graduation_rsvps';
+// ===== RSVP Form → Google Sheets =====
+// ⬇️ PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ⬇️
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzwgHNXjtXkMBwKxPp3vq9D_bfSg-sV_rY_iHgEI4r-CVrJY1mFgatuYVaSSopkZkRR/exec';
 
-function getRSVPs() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-    catch { return []; }
-}
-
-function saveRSVP(data) {
-    const rsvps = getRSVPs();
-    rsvps.unshift(data);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(rsvps));
-}
-
-document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
     const form = new FormData(this);
     const data = {
         name: form.get('name'),
@@ -105,16 +98,39 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
         time: new Date().toLocaleString('vi-VN')
     };
 
-    saveRSVP(data);
+    // Show loading state
+    submitBtn.textContent = 'Đang gửi...';
+    submitBtn.disabled = true;
 
-    this.style.display = 'none';
-    document.getElementById('rsvp-success').style.display = 'block';
+    try {
+        // Send to Google Sheets
+        if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        }
 
-    setTimeout(() => {
-        this.reset();
-        this.style.display = 'flex';
-        document.getElementById('rsvp-success').style.display = 'none';
-    }, 4000);
+        // Show success
+        this.style.display = 'none';
+        document.getElementById('rsvp-success').style.display = 'block';
+
+        setTimeout(() => {
+            this.reset();
+            this.style.display = 'flex';
+            document.getElementById('rsvp-success').style.display = 'none';
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 4000);
+
+    } catch (err) {
+        console.error('RSVP error:', err);
+        submitBtn.textContent = 'Lỗi! Thử lại';
+        submitBtn.disabled = false;
+        setTimeout(() => { submitBtn.textContent = originalText; }, 2000);
+    }
 });
 
 // ===== Intersection Observer for fade-in =====
