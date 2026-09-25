@@ -82,7 +82,7 @@ navLinks.forEach(link => {
 
 // ===== RSVP Form → Google Sheets =====
 // ⬇️ PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ⬇️
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBTDnO9shzrSOw4c89p_yRrnQ7gn1mU8DxGms01uXTXFWBlXX1KUngD4xS9IDFllme/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzst5d1Ze55SRAtTesnWnOoALGncBr2qKo8HwEpxslSNjNrhnGaD8XzKzxX7VmHo493/exec';
 
 document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
     e.preventDefault();
