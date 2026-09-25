@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Lễ Tốt Nghiệp - Đại học Bách Khoa Hà Nội 2026</title>
+    <meta name="description" content="Thiệp mời tham dự Lễ Tốt Nghiệp tại Đại học Bách Khoa Hà Nội ngày 27/09/2026. Hân hạnh được đón tiếp quý khách.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Floating Confetti -->
+    <div class="confetti-container" id="confetti"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="badge animate-on-scroll">🎓</div>
+            <p class="hero-subtitle animate-on-scroll">Trân trọng kính mời</p>
+            <h1 class="hero-title animate-on-scroll">Lễ Tốt Nghiệp</h1>
+            <p class="hero-university animate-on-scroll">Đại học Bách Khoa Hà Nội</p>
+            <p class="hero-year animate-on-scroll">— 2026 —</p>
+            <div class="scroll-indicator animate-on-scroll">
+                <span>Cuộn xuống</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Image Section -->
+    <section class="banner-section" id="banner">
+        <div class="container">
+            <div class="banner-wrapper animate-on-scroll">
+                <img src="images/banner.png" alt="Đại học Bách Khoa Hà Nội - Lễ Tốt Nghiệp" class="banner-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Message -->
+    <section class="invitation-section" id="invitation">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Lời Mời</h2>
+            <div class="invitation-card animate-on-scroll">
+                <div class="invitation-content">
+                    <p class="invitation-greeting">Kính gửi Quý Anh/Chị/Bạn,</p>
+                    <p class="invitation-text">
+                        Với niềm vui và tự hào, tôi xin trân trọng kính mời Quý Anh/Chị/Bạn 
+                        đến tham dự <strong>Lễ Tốt Nghiệp</strong> của tôi tại 
+                        <strong>Trường Đại học Bách Khoa Hà Nội</strong> 
+                        (Hanoi University of Science and Technology).
+                    </p>
+                    <p class="invitation-text">
+                        Sự hiện diện của Quý Anh/Chị/Bạn sẽ là nguồn động viên to lớn, 
+                        cùng tôi đánh dấu cột mốc quan trọng này trong cuộc đời.
+                    </p>
+                    <p class="invitation-signature">Trân trọng! 🌸</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="details-section" id="details">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Thông Tin Sự Kiện</h2>
+            <div class="details-grid">
+                <div class="detail-card animate-on-scroll" style="--delay: 0.1s">
+                    <div class="detail-icon">📅</div>
+                    <h3 class="detail-label">Ngày</h3>
+                    <p class="detail-value">27 tháng 09, 2026</p>
+                    <p class="detail-sub">Chủ Nhật</p>
+                </div>
+                <div class="detail-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="detail-icon">🕑</div>
+                    <h3 class="detail-label">Thời gian</h3>
+                    <p class="detail-value">14:00</p>
+                    <p class="detail-sub">Buổi chiều</p>
+                </div>
+                <div class="detail-card animate-on-scroll" style="--delay: 0.3s">
+                    <div class="detail-icon">📍</div>
+                    <h3 class="detail-label">Địa điểm</h3>
+                    <p class="detail-value">Đại học Bách Khoa Hà Nội</p>
+                    <p class="detail-sub">Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown-section" id="countdown">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Đếm Ngược</h2>
+            <p class="countdown-subtitle animate-on-scroll">Thời gian còn lại đến ngày trọng đại</p>
+            <div class="countdown-timer animate-on-scroll" id="countdown-timer">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Ngày</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Giờ</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Phút</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Giây</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Bản Đồ</h2>
+            <div class="map-wrapper animate-on-scroll">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.696198654025!2d105.84302631533204!3d21.00727699370774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac76ccab6d51%3A0x55e92a5b07a9e12e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBraG9hIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1695000000000!5m2!1svi!2s" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0; border-radius: 16px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <a href="https://maps.google.com/?q=Đại+học+Bách+Khoa+Hà+Nội" target="_blank" class="btn-directions animate-on-scroll">
+                🗺️ Mở Google Maps
+            </a>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Xác Nhận Tham Dự</h2>
+            <p class="rsvp-subtitle animate-on-scroll">Vui lòng xác nhận để tôi chuẩn bị đón tiếp chu đáo nhất</p>
+            <form class="rsvp-form animate-on-scroll" id="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" placeholder="Nhập họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại...">
+                </div>
+                <div class="form-group">
+                    <label for="attendance">Bạn sẽ tham dự chứ?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">-- Chọn --</option>
+                        <option value="yes">✅ Có, tôi sẽ đến!</option>
+                        <option value="maybe">🤔 Có thể</option>
+                        <option value="no">😢 Rất tiếc, tôi không thể đến</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Số người đi cùng</label>
+                    <select id="guests" name="guests">
+                        <option value="0">Chỉ mình tôi</option>
+                        <option value="1">+1 người</option>
+                        <option value="2">+2 người</option>
+                        <option value="3">+3 người</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Lời nhắn</label>
+                    <textarea id="message" name="message" placeholder="Gửi lời chúc hoặc lời nhắn..." rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-submit" id="btn-submit">
+                    <span>Gửi Xác Nhận</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="rsvp-success" id="rsvp-success" style="display:none;">
+                <div class="success-icon">🎉</div>
+                <h3>Cảm ơn bạn!</h3>
+                <p>Xác nhận của bạn đã được ghi nhận. Hẹn gặp bạn tại buổi lễ!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest Wishes -->
+    <section class="wishes-section" id="wishes">
+        <div class="container">
+            <div class="ornament animate-on-scroll">✦</div>
+            <h2 class="section-title animate-on-scroll">Lời Chúc</h2>
+            <div class="wishes-list" id="wishes-list">
+                <!-- Wishes will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-emoji">🎓</p>
+            <p class="footer-text">Lễ Tốt Nghiệp 2026</p>
+            <p class="footer-university">Đại học Bách Khoa Hà Nội</p>
+            <p class="footer-copyright">Made with ❤️</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
